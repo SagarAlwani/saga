@@ -6,7 +6,7 @@ def check_reboot():
     """Returns True if the computer has a Pending Reboot"""
     return os.path.exists("/run/reboot-required")
 
-def check_disk_full(disk, min_gb, min_percent):
+def check_disk_full(disk_usage, min_gb, min_percent):
     """Returns True if there isn't enough disk space, False otherwise"""
     du = shutil.disk_usage(disk)
     #Calculate the percentage of free space
@@ -21,7 +21,7 @@ def main():
     if check_reboot():
         print("Pending Reboot.")
         sys.exit(1)
-    if check_disk_full(disk="/",min_gb=2,min_percent=10):
+    if check_disk_full(disk_usage="/",min_gb=2,min_percent=10):
         print("Disk full.")
         sys.exit(1)
 

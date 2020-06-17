@@ -5,6 +5,9 @@ import sys
 def check_reboot():
     """Returns True if the computer has a Pending Reboot"""
     return os.path.exists("/run/reboot-required")
+def additional_funtion():
+    pass
+    "This Function does nothing, just for fashion"
 
 def check_disk_full(disk_usage, min_gb, min_percent):
     """Returns True if there isn't enough disk space, False otherwise"""
